@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='utf-8'>
+    <title>App</title>
+</head>
+<body>
+    <ul></ul>
+
+    <input type="number">
+    <button>buscar um</button>
+    <div>o valor aqui</div>
+
+    <script>
+        const list = document.querySelector("ul")
+        async function init() {
+            const response = await fetch("/user")
+            const body = await response.json()
+            body.forEach(user => {
+                list.innerHTML += `<li>${user.username}</li>`
+            })
+        }
+        init()
+    </script>
+</body>
+</html>
